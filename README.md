@@ -47,3 +47,24 @@ writebook = xlwt.Workbook()
 			
 >>> print(tag,ur1+link,title)
 #正则表达式符号’.’表示匹配任何字符串（除\n之外）；‘+’表示匹配0次或者多次前面出现的正则表达式；‘？’表示匹配0次或者1次前面出现的正则表达式。
+# 在网页进行数据爬取
+import re
+>>> import urllib.request
+>>> def getHtml(url):
+	page = urllib.request.urlopen(url)
+	html = page.read()
+	return html
+
+>>> def getImg(html):
+	reg = r'src="(.*\jpg)" alt'
+	imgre = re.compile(reg)
+	imglist = re.findall(imgre,html)
+	x = 0
+	for imgurl in imglist:
+		urllib.urlretrieve(imgurl,'%s.jpg' % x)
+		x+=1
+
+		
+>>> html = getHtml("http://photo.bitauto.com/?WT.mc_id=360tpdq")
+>>> print(html)
+
