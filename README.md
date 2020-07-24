@@ -97,4 +97,20 @@ just a study
 >>>turtle.pendown()
 >>>turtle.color('green')
 >>>turtle.circle(50)
-
+# 001对象：一切皆对象（类型、标识、值）
+>>> a = 3# a是变量，3是对象
+>>> id(3)
+1539258656
+>>> type(a)
+<class 'int'>
+>>> print(a)
+3
+>>> id(a)
+1539258656
+>>> b = "我爱你"
+>>> id(b)
+62097408
+>>> type(b)
+<class 'str'>
+>>> print(b)
+我爱你
